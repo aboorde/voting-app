@@ -1,0 +1,22 @@
+<template name="Poll">
+    <article class="poll {{#if isPublic}}is-public{{/if}}">
+        <h3>{{name}}</h3>
+        {{#if editMode}}
+            {{> quickForm collection="Polls" id=updatePollId type="update" doc=this autosave=true}}
+        {{else}}
+            {{#each pollOptions}}
+                <div class="pollOption">{{name}} ==> <b>{{votes}} votes</b></div>
+            {{/each}}
+            <p>
+            <a href="/poll/{{_id}}">View Details</a>
+            </p>
+            {{#if isPublic}}
+                <button class="btn-deny toggle-public">Remove From Public List</button>
+            {{else}}
+                <button class="btn-primary toggle-public">Add To Public List</button>
+            {{/if}}
+        {{/if}}
+        <i class="fa fa-pencil"></i>
+        <i class="fa fa-trash"></i>  
+    </article>
+</template>

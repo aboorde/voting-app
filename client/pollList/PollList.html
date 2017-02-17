@@ -1,0 +1,17 @@
+<template name="PollList">
+    <h1 class="page-title">Public Poll List</h1>
+    {{#each pollList}}
+            <article class="poll">
+                <h3>{{name}}</h3>
+                {{#each pollOptions}}
+                    <div class="pollOption">{{name}} ==> <b>{{votes}} votes</b></div>
+                {{/each}}
+                <select class="vote-select">
+                    <option value="" disabled selected hidden>Select to Vote!</option>
+                    {{#each pollOptions}}
+                        <option>{{name}}</option>
+                    {{/each}}
+                </select>
+            </article>
+    {{/each}}
+</template>

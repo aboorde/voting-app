@@ -1,0 +1,13 @@
+<template name="Polls">
+    <h1 class="page-title">My Polls</h1>
+    <section class="polls">
+        {{#if Template.subscriptionsReady}}
+            {{#each polls}}
+                {{> Poll}}
+            {{/each}}
+        {{else}}
+            <p>Loading</p>
+        {{/if}}
+    </section>
+    
+</template>
