@@ -7,7 +7,7 @@
                     <div class="pollOption">{{name}} ==> <b>{{votes}} votes</b></div>
                 {{/each}}
                 <p>
-                    <a href="/poll/{{_id}}">View Poll Results</a>
+                    <a href="/poll/{{_id}}">View Graph</a>
                 </p>
                 <select class="vote-select" id="{{_id}}">
                     <option value="" disabled selected hidden>Select to Vote!</option>
@@ -16,5 +16,6 @@
                     {{/each}}
                 </select>
             </article>
+            
     {{/each}}
 </template>
