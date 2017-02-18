@@ -1,0 +1,48 @@
+<template name="Poll">
+    <article class="poll {{#if isPublic}}is-public{{/if}}">
+        <h3>{{name}}</h3>
+        {{#if editMode}}
+            {{> quickForm collection="Polls" id=updatePollId type="update" doc=this autosave=true}}
+        {{else}}
+            {{#each pollOptions}}
+                <div class="pollOption">{{name}} ==> <b>{{votes}} votes</b></div>
+            {{/each}}
+            <p>
+                <a href="/poll/{{_id}}">View Details</a>
+            </p>
+            {{#if isPublic}}
+                <button class="btn-deny toggle-public">Remove From Public List</button>
+            {{else}}
+                <button class="btn-primary toggle-public">Add To Public List</button>
+            {{/if}}
+        {{/if}}
+        {{#if isPublic}}
+            <i class="fa fa-share-alt" data-toggle="modal" data-target="#modal-{{_id}}"></i>
+        {{/if}}
+        <i class="fa fa-pencil"></i>
+        <i class="fa fa-trash"></i>  
+
+        
+
+    </article>
+    <!-- Modal -->
+        <div class="modal fade" id="modal-{{_id}}" role="dialog">
+            <div class="modal-dialog">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Share Poll - {{name}}</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea>https://polling-fcc.herokuapp.com/poll/{{_id}}</textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+</template>

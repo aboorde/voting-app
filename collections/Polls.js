@@ -76,6 +76,7 @@ Meteor.methods({
     },
     increasePollChoice: function(id, choice) {
         //console.log(Polls.find({}));
+        Polls.update({_id: id, "pollOptions.name":choice}, {$inc: {"pollOptions.$.votes": 1}});
     }
 });
 

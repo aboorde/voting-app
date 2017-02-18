@@ -1,0 +1,7 @@
+<template name="PollDetail">
+    <h1>{{poll.name}}</h1>
+    {{#each poll.pollOptions}}
+        <div class="pollOption">{{name}} ==> <b>{{votes}} votes</b></div>
+    {{/each}}
+    {{> PollGraph}}
+</template>

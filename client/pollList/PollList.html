@@ -6,7 +6,10 @@
                 {{#each pollOptions}}
                     <div class="pollOption">{{name}} ==> <b>{{votes}} votes</b></div>
                 {{/each}}
-                <select class="vote-select">
+                <p>
+                    <a href="/poll/{{_id}}">View Poll Results</a>
+                </p>
+                <select class="vote-select" id="{{_id}}">
                     <option value="" disabled selected hidden>Select to Vote!</option>
                     {{#each pollOptions}}
                         <option>{{name}}</option>
